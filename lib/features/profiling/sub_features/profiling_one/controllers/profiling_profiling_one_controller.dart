@@ -142,4 +142,12 @@ class ProfilingProfilingOneController extends GetxController {
             r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
         .hasMatch(email);
   }
+
+  bool canNext(){
+    return nameErrorMessage.value.isEmpty &&
+        emailErrorMessage.value.isEmpty &&
+        phoneErrorMessage.value.isEmpty &&
+        passwordErrorMessage.value.isEmpty &&
+        passwordConfirmationErrorMessage.value.isEmpty;
+  }
 }

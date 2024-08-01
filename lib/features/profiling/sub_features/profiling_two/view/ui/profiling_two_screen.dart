@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:venturo_form_stepper/features/profiling/constants/profiling_assets_constant.dart';
+import 'package:venturo_form_stepper/features/profiling/controllers/profiling_controller.dart';
 import 'package:venturo_form_stepper/features/profiling/sub_features/profiling_two/controllers/profiling_profiling_two_controller.dart';
 import 'package:venturo_form_stepper/shared/widgets/custom_text_field_widget.dart';
 import 'package:venturo_form_stepper/shared/widgets/primary_button_widget.dart';
@@ -54,8 +55,18 @@ class ProfilingTwoScreen extends StatelessWidget {
           children: [
             Expanded(
               child: PrimaryButtonWidget(
+                label: 'Previous',
+                onPressed: () {
+                  ProfilingController.to.previousProfilingStep();
+                },
+              ),
+            ),
+            Expanded(
+              child: PrimaryButtonWidget(
                 label: 'Submit',
-                onPressed: () {},
+                onPressed: () {
+                  ProfilingController.to.nextProfilingStep();
+                },
               ),
             ),
           ],

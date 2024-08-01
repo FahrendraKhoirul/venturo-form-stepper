@@ -27,9 +27,9 @@ class DataConverter {
     List temp = value.split('_');
     List temp2 = [];
 
-    temp.forEach((element) {
+    for (var element in temp) {
       temp2.add(camelCaseToPascalCase(element));
-    });
+    }
 
     return temp2.join();
   }

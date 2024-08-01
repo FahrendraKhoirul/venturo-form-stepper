@@ -6,6 +6,7 @@ import 'package:venturo_form_stepper/features/profiling/controllers/profiling_co
 import 'package:venturo_form_stepper/features/profiling/sub_features/profiling_one/view/ui/profiling_one_screen.dart';
 import 'package:venturo_form_stepper/features/profiling/sub_features/profiling_two/view/ui/profiling_two_screen.dart';
 import 'package:venturo_form_stepper/features/profiling/view/components/progress_profiling_component.dart';
+import 'package:venturo_form_stepper/shared/widgets/primary_button_widget.dart';
 
 class ProfilingScreen extends StatelessWidget {
   ProfilingScreen({Key? key}) : super(key: key);
@@ -36,8 +37,25 @@ class ProfilingScreen extends StatelessWidget {
                   }
 
                   if (profilingStep == 2) {
-                    return const Center(
-                      child: Text('Profiling Step 3'),
+                    return Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        const Text('Profiling Step 3'),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: PrimaryButtonWidget(
+                                label: 'Previous',
+                                onPressed: () {
+                                  ProfilingController.to
+                                      .previousProfilingStep();
+                                },
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
                     );
                   }
 

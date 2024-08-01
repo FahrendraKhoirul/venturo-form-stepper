@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:venturo_form_stepper/features/profiling/constants/profiling_assets_constant.dart';
+import 'package:venturo_form_stepper/features/profiling/controllers/profiling_controller.dart';
 import 'package:venturo_form_stepper/features/profiling/sub_features/profiling_one/controllers/profiling_profiling_one_controller.dart';
 import 'package:venturo_form_stepper/shared/widgets/custom_text_field_widget.dart';
 import 'package:venturo_form_stepper/shared/widgets/primary_button_widget.dart';
@@ -126,7 +127,13 @@ class ProfilingOneScreen extends StatelessWidget {
             Expanded(
               child: PrimaryButtonWidget(
                 label: 'Submit',
-                onPressed: () {},
+                onPressed: () {
+                  controller.canNext()
+                      ? ProfilingController.to.nextProfilingStep()
+                      : Get.snackbar(
+                          'Error', 'Please fill all the form correctly',
+                          snackStyle: SnackStyle.FLOATING);
+                },
               ),
             ),
           ],
